@@ -102,7 +102,13 @@ WORD   AfxCross(float*psData,float*plData,WORD nIndex,float&nCross)
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-BOOL InputInfoThenCalc1(char * Code,short nSetCode,int Value[4],short DataType,short nDataNum,BYTE nTQ,unsigned long unused) //按最近数据计算
+BOOL InputInfoThenCalc1(char * Code,		//股票代码
+						short nSetCode,		//市场分类，0为深市 1为沪市
+						int Value[4],		//设置参数
+						short DataType,		//申请数据类型，缺省为日K线历史数据
+						short nDataNum,		//申请数据个数
+						BYTE nTQ,			//精确除权信息
+						unsigned long unused) //按最近数据计算
 {
 	BOOL nRet = FALSE;
 	NTime tmpTime={0};

@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Log.h" />
     <ClInclude Include="OutStruct.h" />
     <ClInclude Include="Plugin.h" />
     <ClInclude Include="StdAfx.h" />
