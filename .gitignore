@@ -21,3 +21,6 @@ debug*/
 obj/
 Release*/
 _ReSharper*/
+
+TdxPlugin.opensdf
+TdxPlugin.sdf
