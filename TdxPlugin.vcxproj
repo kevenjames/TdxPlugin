@@ -58,7 +58,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)$(Configuration)\TdxPlugin.dll D:\new_tdx\plugin\TdxPlugin.dll</Command>
+      <Command>copy $(SolutionDir)$(Configuration)\TdxPlugin.dll D:\new_zszq\plugin\TdxPlugin.dll</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,6 +85,7 @@
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="TdxPlugin.cpp" />
     <ClCompile Include="StdAfx.cpp" />
   </ItemGroup>

@@ -23,15 +23,29 @@ namespace TdxPlugin
 		LOG_WARNING,
 		LOG_FATAL,
 		LOG_NONE,
-	}LogLevel
+	}LogLevel;
 
 	class CLog
 	{
 	public:
 		static CLog& Instance();
 		static void SetLogFilePath(const string& strFilePath, bool bAppend);
+		static void SetLogLevel(const LogLevel Level);
+		static void Initialise(bool bAppend = false);
+		static void Dispose();
+
+		void Log(const LogLevel Level, const char* Format, ...);
+	private:
+		CLog();
+		CLog(CLog const&);
+		CLog& operator=(CLog const&);
+		~CLog();
+
+		static FILE* m_hLogFile;
+		static string m_strFilePath;
+		static LogLevel m_LogLevel;
 	
 	};
-}
+};
 
 #endif //_LOG_H
