@@ -119,7 +119,6 @@ BOOL InputInfoThenCalc1(char * Code,		//股票代码
 
 	LPHISDAT pHisDat = new HISDAT[nDataNum];  //数据缓冲区
 	long readnum = m_pfn(Code,nSetCode,DataType,pHisDat,nDataNum,tmpTime,tmpTime,nTQ,0);  //利用回调函数申请数据，返回得到的数据个数
-	lalala
 	if( readnum > max(Value[0],Value[1]) ) //只有数据个数大于Value[0]和Value[1]中的最大值才有意义
 	{
 		float *pMa1 = new float[readnum];
