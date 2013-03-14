@@ -34,26 +34,30 @@ void RegisterDataInterface(PDATAIOFUNC pfn)
 void GetCopyRightInfo(LPPLUGIN info)
 {
 	//填写基本信息
-	strcpy(info->Name,"边寒剑X理论");
+	strcpy(info->Name,"选股");
 	strcpy(info->Dy,"深圳");
 	strcpy(info->Author,"田雨");
 	strcpy(info->Period,"短线");
-	strcpy(info->Descript,"一周内涨停，整理时开盘一小时内出现急跌后拉起，拉起幅度超过3.5%，最低位置出现当天最大量");
+	strcpy(info->Descript,"自定义选股");
 	strcpy(info->OtherInfo,"自定义X理论");
 	//填写参数信息
-	info->ParamNum = 3;
-	strcpy(info->ParamInfo[0].acParaName,"涨停+X天");
-	info->ParamInfo[0].nMax=1;
-	info->ParamInfo[0].nMax=15;
+	info->ParamNum = 4;
+	strcpy(info->ParamInfo[0].acParaName,"参数1");
+	info->ParamInfo[0].nMin=1;
+	info->ParamInfo[0].nMax=100;
 	info->ParamInfo[0].nDefault=1;
-	strcpy(info->ParamInfo[1].acParaName,"开盘Y分钟内出现");
-	info->ParamInfo[1].nMax=1;
-	info->ParamInfo[1].nMax=180;
+	strcpy(info->ParamInfo[1].acParaName,"参数2");
+	info->ParamInfo[1].nMin=1;
+	info->ParamInfo[1].nMax=1000;
 	info->ParamInfo[1].nDefault=60;
-	strcpy(info->ParamInfo[2].acParaName,"急跌10*Z个百分点");
-	info->ParamInfo[2].nMax=0;
-	info->ParamInfo[2].nMax=100;
+	strcpy(info->ParamInfo[2].acParaName,"参数3");
+	info->ParamInfo[2].nMin=0;
+	info->ParamInfo[2].nMax=1000;
 	info->ParamInfo[2].nDefault=60;
+	strcpy(info->ParamInfo[3].acParaName,"参数4");
+	info->ParamInfo[3].nMin=0;
+	info->ParamInfo[3].nMax=1000;
+	info->ParamInfo[3].nDefault=60;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -137,7 +141,14 @@ BOOL InputInfoThenCalc1(char * Code,		//股票代码
 	return nRet;
 }
 
-BOOL InputInfoThenCalc2(char * Code,short nSetCode,int Value[4],short DataType,NTime time1,NTime time2,BYTE nTQ,unsigned long unused)  //选取区段
+BOOL InputInfoThenCalc2(char * Code,		//股票代码
+						short nSetCode,		//市场分类
+						int Value[4],		//参数列表
+						short DataType,		//申请数据类型，缺省为日K线历史数据
+						NTime time1,		//开始时间
+						NTime time2,		//结束时间
+						BYTE nTQ,			//精确除权信息
+						unsigned long unused)  //选取区段
 {
 	BOOL nRet = FALSE;
 	NTime tmpTime={0};

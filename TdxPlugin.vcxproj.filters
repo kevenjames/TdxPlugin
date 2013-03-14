@@ -16,6 +16,9 @@
     <Filter Include="Util">
       <UniqueIdentifier>{0bdbcd1d-2a35-4978-8edb-d023a596131a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{3ea07581-3b6c-4a26-9048-878b4ed83172}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OutStruct.h">
